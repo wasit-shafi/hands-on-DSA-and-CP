@@ -16,7 +16,7 @@ int main()
     cout << "All Possible Sub-Strings are as : " << endl << endl;
     for(int i = 0 ; i < str.size() ; i++)
     {
-        for( int len = 1 ; len <= str.size() - i; len++)
+        for( int len = 2 ; len <= str.size() - i; len++)
             cout << "\'" << str.substr(i, len) << "\'  ";
         cout << endl ;
     }
