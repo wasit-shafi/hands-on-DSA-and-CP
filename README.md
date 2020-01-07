@@ -4,4 +4,6 @@ This repo. contains my day to day Competitive Programming programs in several pr
 
 <a href = "https://www.w3schools.com/">![sample pic](https://homepages.cae.wisc.edu/~ece533/images/airplane.png)</a>
 
+<h1> this is header 1</h1>
 
+<a href = "https://www.w3schools.com/"><img src = "https://homepages.cae.wisc.edu/~ece533/images/airplane.png"/></a>
