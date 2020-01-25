@@ -15,7 +15,7 @@ int main()
     long e;
     unsigned long f; 
 
-    long long g = 123456789ll;
+    long long g = 123456789ll;     // CTM : sufix "ll" for long long numbers
     unsigned long long h = 123456789123ll;
     
     __int128_t i = 123456789789456126;    // refer : pg. no 6 (cout does not handle __int128)
