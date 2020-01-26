@@ -3,6 +3,7 @@
 #include<algorithm>
 using namespace std;
 
+// Brute-force algorithms
 int algorithm_n3(int arr[], int n)
 {
 	int sum, maxsum;
@@ -37,6 +38,7 @@ int algorithm_n2(int arr[], int n)
 	return maxsum;
 }
 
+// Kadane's Algorithm
 int algorithm_n(int arr[], int n)
 {
 	int sum, maxsum;
