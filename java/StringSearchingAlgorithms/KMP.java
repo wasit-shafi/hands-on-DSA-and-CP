@@ -1,47 +1,48 @@
 /**
     @author wasitshafi
-    @since  27-01-2020
+    @since  28-01-2020
 */
+//ref : https://www.tutorialspoint.com/Knuth-Morris-Pratt-Algorithm
+//      https://github.com/mission-peace/interview/blob/master/src/com/interview/string/SubstringSearch.java
+//      https://www.youtube.com/watch?v=GTJr8OvyEVQ
+
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 
 public class KMP
 {
-    private static int piTable[];
-    private static String str ="";
-    private static String pattern = "";
-
-    private static void computePiTable()
+    static int[] getlps(String pattern, int patternLength)
     {
-        /*
-        loop : for(int i = 1 ; i < pattern.length() ; i++)
+        int i, j, lps[] = new int[patternLength];
+        j = 0;
+        i = 1;
+        lps[0] = 0;
+        while(i < patternLength)
         {
-            for(int j = 0 ; j < i ; j++)
+            if(pattern.charAt(i) == pattern.charAt(j))
+                lps[i++] = ++j;
+            else
             {
-                if(pattern.charAt(j) == pattern.charAt(i))
-                {
-                    piTable[i] = j + 1;
-                    continue loop;
-                }
+                if(j == 0)
+                    lps[i++] = 0;
+                else
+                    j = lps[j - 1];
             }
-            piTable[i] = 0; // not found;
         }
-        */
-        piTable[0] = 0;
-        piTable[1] = 0;
-        piTable[2] = 1;
-        piTable[3] = 2;
-        piTable[4] = 0;
+        return lps;
     }
 
-    public static int search()
+    static int KMPSearch(String str, String pattern)
     {
-        int strlen = str.length();            // So that we don't have to recall in each iteration
-        int patternlen = pattern.length();
-        computePiTable();
-        for(int i = 0, j = 0 ; i < strlen ; )
+        int i, j, strLength, patternLength, lps[], index = -1;
+
+        strLength = str.length();
+        patternLength = pattern.length();
+        lps = getlps(pattern, patternLength);
+        i = j = 0;
+        while(i < strLength && j < patternLength)
         {
-            if(str.charAt(i) == pattern.charAt(j+1))
+            if(str.charAt(i) == pattern.charAt(j))
             {
                 i++;
                 j++;
@@ -51,36 +52,32 @@ public class KMP
                 if(j == 0)
                     i++;
                 else
-                    j = piTable[j];
+                    j = lps[j - 1];
             }
-            if(j == patternlen - 1) return i - patternlen;
         }
-        return -1;
+        if(j == patternLength) index = i - patternLength;
+        return index;
     }
-    
+
     public static void main(String... args) throws Exception
     {
-        int index = 10;
+        int index;
+        String str, pattern;
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-    
-        /*
+        
         System.out.print("Enter String... ");
         str = br.readLine();
-        
         System.out.print("Enter pattern... ");
         pattern = br.readLine();
-        */
 
-        str = "ababcabcabababd";
-        pattern = "ababd";
-        
-        piTable = new int[pattern.length() + 1]; // piTable or lps[](Longest Prefix/Sufix)
-        index = search();
-        if(index != -1)
-            System.out.println("Found at index " + index);
+        /*str = "ABABDABACDABABCABAB";
+        pattern = "ABABCABAB"; */
+        index = KMPSearch(str, pattern);
+
+        if(index == -1)
+            System.out.println("Pattern not found");
         else
-            System.out.println("Not Found");
-
+            System.out.println("Pattern found at index " + index);
         br.close();
     }
 }
