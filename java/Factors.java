@@ -7,7 +7,7 @@ public class Factors
         for(int i = 1 ; i <= sqrt(number) ; i++) // Because we have used "Static import" so we don't need to prefix Class name before function. For more info refer : https://en.wikipedia.org/wiki/Static_import 
             if(number % i == 0) 
             {
-                if(number / i == i)
+                if(number / i == i) // because 'number' may be perfect square
                     System.out.print(i + " ");
                 else
                     System.out.print(i + " " + number / i + " ");    
