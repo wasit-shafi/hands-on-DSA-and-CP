@@ -1,5 +1,5 @@
 import java.util.Scanner;
-public class printAllPermutationOfLengthK
+public class printAllPermutationOfLengthKWithDublicate
 {
     //  i won't prefer to have an extra function as wrapper function and an argument 'n' which is used by geeksforgeeks
     //  refer :https://www.geeksforgeeks.org/print-all-combinations-of-given-length/
