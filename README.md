@@ -1,16 +1,15 @@
 # hands-on-DSA-and-CP
 - This repo includes misc. DSA & CP problem practice programs.
 
-### Boilerplate code for Java
+### Boilerplate code for Java [refer gist](https://gist.github.com/wasitshafi/bb0fa68572b09621f57f4632aad177c0)
 
 ---
-
 ```java
+// URL: 
 /**
  * @author WasitShafi
- * @since 01-JAN-2022
+ * @since 01-MAR-2023
  */
-// Question:
 import java.util.Scanner;
 
 public class Main {
